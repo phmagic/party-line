@@ -24,7 +24,11 @@ exports.handler = async function (event, context) {
         // expire in 10 minutes
         exp: Math.round(Date.now() / 1000) + 60 * 60,
         eject_at_room_exp: true,
-        signaling_impl: "ws",
+        // signaling_impl: "ws",
+        enable_video_processing_ui: false,
+        max_participants: 3,
+        start_video_off: true,
+        eject_at_room_exp: true
       },
     });
     const room = await apiHelper("post", "/rooms", roomBody);
