@@ -33,7 +33,7 @@ export const CallProvider = ({ children }) => {
       // CHANGE THIS TO YOUR NETLIFY URL
       // EX: https://myapp.netlify.app/.netlify/functions/room
       `${
-        process.env.REACT_APP_NETLIFY_URL || "https://partyline.daily.co"
+        process.env.REACT_APP_NETLIFY_URL || "https://candid-blancmange-120bf5.netlify.app"
       }/.netlify/functions/room`,
       {
         method: "POST",
@@ -52,7 +52,7 @@ export const CallProvider = ({ children }) => {
       // CHANGE THIS TO YOUR NETLIFY URL
       // EX: https://myapp.netlify.app/.netlify/functions/token
       `${
-        process.env.REACT_APP_NETLIFY_URL || "https://partyline.daily.co"
+        process.env.REACT_APP_NETLIFY_URL || "https://candid-blancmange-120bf5.netlify.app"
       }/.netlify/functions/token`,
       {
         method: "POST",
@@ -103,7 +103,7 @@ export const CallProvider = ({ children }) => {
         // CHANGE THIS TO YOUR DAILY DOMAIN
         // EX: https://myaccount.daily.co/${roomInfo?.name}
         url: `${
-          process.env.REACT_APP_DAILY_DOMAIN || "https://devrel.daily.co"
+          process.env.REACT_APP_DAILY_DOMAIN || "https://phun.daily.co"
         }/${roomInfo?.name}`,
         userName,
       };
@@ -442,6 +442,7 @@ export const CallProvider = ({ children }) => {
       console.log("[GETTING ROOM DETAILS]");
       const room = await callFrame?.room();
       const exp = room?.config?.exp;
+      console.log(room);
       setRoom(room);
       if (exp) {
         setRoomExp(exp * 1000 || Date.now() + 1 * 60 * 1000);
