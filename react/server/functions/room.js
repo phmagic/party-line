@@ -20,6 +20,7 @@ exports.handler = async function (event, context) {
   let code = 500;
   try {
     const roomBody = JSON.stringify({
+      privacy: 'private',
       properties: {
         // expire in 10 minutes
         exp: Math.round(Date.now() / 1000) + 60 * 60,
